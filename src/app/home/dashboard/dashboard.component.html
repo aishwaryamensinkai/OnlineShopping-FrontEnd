@@ -1,0 +1,131 @@
+<br />
+<br />
+<div class="header-image">
+  <div class="header-block">
+    <div class="header-text">
+      <div class="header-text-title">Plates</div>
+      <p>
+        The latest styles are here. Making a difference for your kitchen. Where
+        the difference counts. Have your food with style. The trends you most
+        desire. The brand you can trust. The world’s finest crockeries are here.
+        Delivering the best to you. Delicate by design.For an elegant dining
+        experience.Sweet, shiny and affordable.
+      </p>
+    </div>
+  </div>
+</div>
+<div class="alert text-center" [class.visible]="isVisible">
+  <b>Added to Cart Successfully!!</b>
+</div>
+<div class="row">
+  <div class="col-2" style="text-align: center; align-items: center">
+    <br />
+    <br />
+    <b style="font-size: 22px"><h2>Filter by</h2></b><br />
+    <div>
+      <button class="button button5" (click)="filter('All')">All</button>
+    </div>
+    <div *ngFor="let value of filterArray">
+      <button class="button button4" (click)="filter(value)">
+        {{ value }}
+      </button>
+    </div>
+  </div>
+
+  <div class="col-10">
+    <br />
+    <br />
+    <div class="layout-container">
+      <div class="form-group has-search">
+        <span class="fa fa-search form-control-feedback"></span>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search"
+          [(ngModel)]="query"
+          id="listSearch"
+        />
+      </div>
+      <div class="product-grid">
+        <div class="row">
+          <div
+            class="col-md-4 col-sm-6"
+            *ngFor="let product of products | searchFilter: query"
+          >
+            <div class="image-container">
+              <div
+                class="product-image"
+                [ngStyle]="{
+                  'background-image': 'url(./assets/imgs/' + product.image + ')'
+                }"
+              ></div>
+              <div class="overlay">
+                <div class="content">
+                  <button
+                    type="button"
+                    class="btn"
+                    (click)="increaseQuantity(product)"
+                  >
+                    <i class="fa fa-plus"></i></button
+                  >&nbsp; <span>{{ product.quantity }}</span
+                  >&nbsp;
+                  <button
+                    type="button"
+                    class="btn"
+                    (click)="decreaseQuantity(product)"
+                  >
+                    <i class="fa fa-minus"></i>
+                  </button>
+                </div>
+                <div
+                  class="button button-primary"
+                  (click)="showPopFuction(product)"
+                >
+                  View Details
+                </div>
+                <br />
+                <div class="button button-primary" (click)="addToCart(product)">
+                  Add To Cart
+                </div>
+              </div>
+            </div>
+            <div class="product-details">
+              <div class="product-brand">{{ product.brand }}</div>
+              <div class="product-title">{{ product.title }}</div>
+              <div class="product-price">
+                {{ product.price | currency: "INR":"symbol" }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="popupCss" *ngIf="popup">
+      <div class="popup">
+        <h2 style="text-align: center; font-size: larger; font-weight: bold">
+          Product Details
+        </h2>
+        <a class="close" (click)="popup = false">&times;</a>
+        <div class="content">
+          <div class="product-details-row">
+            <div>
+              <div
+                class="product-image"
+                [ngStyle]="{
+                  'background-image':
+                    'url(./assets/imgs/' + viewProduct.image + ')'
+                }"
+              ></div>
+            </div>
+            <div><b>Brand :</b>{{ viewProduct.brand }}</div>
+            <div><b>Name :</b>{{ viewProduct.title }}</div>
+            <div>
+              <b>Price :</b> {{ viewProduct.price | currency: "INR":true }}
+            </div>
+            <div><b>Description :</b> {{ viewProduct.description }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

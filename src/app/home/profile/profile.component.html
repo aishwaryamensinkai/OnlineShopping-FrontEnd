@@ -1,0 +1,117 @@
+<br />
+<br />
+<br />
+<div class="alert text-center" [class.visible]="isVisible">
+  <b>Updated Successfully!!</b>
+</div>
+
+<div class="my-form">
+  <div class="cotainer">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header" style="text-align: center !important">
+            <b style="padding-left: 270px">Update Profile Details</b>
+          </div>
+          <div class="card-body" style="text-align: justify">
+            <form
+              [formGroup]="userform"
+              (submit)="updateUser(userform.value)"
+              *ngIf="this.userform"
+            >
+              <div class="form-group row extraCss">
+                <div class="col-md-1"></div>
+                <label for="name" class="col-md-4 col-form-label text-md-right"
+                  >Name</label
+                >
+                <div
+                  class="col-md-6"
+                  style="padding-top: 8px; padding-bottom: 8px"
+                >
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="your-name"
+                    formControlName="name"
+                    name="name"
+                  />
+                </div>
+              </div>
+              <div class="form-group row extraCss">
+                <div class="col-md-1"></div>
+                <label
+                  for="emailId"
+                  class="col-md-4 col-form-label text-md-right"
+                  >Email ID</label
+                >
+                <div
+                  class="col-md-6"
+                  style="padding-top: 8px; padding-bottom: 8px"
+                >
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="your-emailId"
+                    formControlName="emailId"
+                    name="emailId"
+                  />
+                </div>
+              </div>
+              <div class="form-group row extraCss">
+                <div class="col-md-1"></div>
+                <label
+                  for="userName"
+                  class="col-md-4 col-form-label text-md-right"
+                  >User Name</label
+                >
+                <div
+                  class="col-md-6"
+                  style="padding-top: 8px; padding-bottom: 8px"
+                >
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="username"
+                    formControlName="userName"
+                    name="userName"
+                    readonly
+                  />
+                </div>
+              </div>
+              <div class="form-group row extraCss">
+                <div class="col-md-1"></div>
+                <label
+                  for="password"
+                  class="col-md-4 col-form-label text-md-right"
+                  >Password</label
+                >
+                <div
+                  class="col-md-6"
+                  style="padding-top: 8px; padding-bottom: 8px"
+                >
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Your Password"
+                    formControlName="password"
+                    name="password"
+                    pattern="(?=.*[a-z])(?=.*[A-Z]).{5,}"
+                  />
+                </div>
+              </div>
+              <div style="text-align: center">
+                <small style="color: red"
+                  ><b>{{ message }}</b
+                  ><br /><br
+                /></small>
+              </div>
+              <div class="col-md-7 offset-md-4" style="padding-left: 50px">
+                <button type="submit" class="btn btn-primary">Update</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

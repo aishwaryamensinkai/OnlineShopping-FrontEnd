@@ -1,0 +1,81 @@
+.my-form,
+.login-form {
+  font-family: Raleway, sans-serif;
+}
+
+.my-form {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.my-form .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.login-form {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.login-form .row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.extraCss {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+.has-error {
+  border-color: red !important;
+}
+
+.has-success {
+  border-color: green !important;
+}
+.address {
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  text-decoration: underline;
+  padding-bottom: 5px;
+}
+.colmd2 {
+  padding-left: 0px;
+  padding-right: 0px;
+  text-align: justify;
+}
+.card-footer {
+  background-color: transparent;
+  border-top: 1px solid #ededed;
+  align-items: stretch;
+  display: block;
+}
+.card-header {
+  background-color: transparent;
+  align-items: stretch;
+  box-shadow: 0 0.125em 0.25em rgb(10 10 10 / 10%);
+  display: block;
+}
+.alert {
+  position: fixed;
+  top: 40px;
+  right: 40%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.25rem;
+  background: #fff;
+  color: green;
+  box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.5);
+  transition: all 0.2s ease-in-out;
+  opacity: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.visible {
+  opacity: 1;
+  transform: translateY(1.25rem);
+}

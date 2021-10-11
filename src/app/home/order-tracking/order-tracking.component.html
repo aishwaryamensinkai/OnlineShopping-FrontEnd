@@ -1,0 +1,167 @@
+<table style="border: 0px" cellpadding="0" cellspacing="0" width="100%">
+  <tr>
+    <td class="iconCss">
+      <table
+        align="center"
+        cellpadding="0"
+        cellspacing="0"
+        width="100%"
+        class="classCss"
+      >
+        <tr>
+          <td class="table1">
+            <table cellpadding="0" cellspacing="0" width="100%" class="table2">
+              <tr>
+                <td class="td1">
+                  <img
+                    src="https://img.icons8.com/carbon-copy/100/000000/checked-checkbox.png"
+                    width="125"
+                    height="120"
+                  /><br />
+                  <h2 class="h2css">Thank You For Your Order!</h2>
+                </td>
+              </tr>
+              <tr>
+                <td class="td2">
+                  <table cellspacing="0" cellpadding="0" width="100%">
+                    <tr>
+                      <td width="75%" class="tr1">Order Confirmation #</td>
+                      <td width="25%" class="td3">
+                        {{ orderDetails?.orderId }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td width="75%" class="td4">
+                        Purchased Item ({{ orderDetails?.productId.length }})
+                      </td>
+                      <td width="25%" class="td5">
+                        {{ orderTotal | currency: "INR":"symbol" }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td width="75%" class="td6">Shipping + Handling</td>
+                      <td width="25%" class="td7">
+                        {{ shipping | currency: "INR":"symbol" }}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td width="75%" class="td6">Tax (10%)</td>
+                      <td width="25%" class="td7">
+                        {{ taxAmt | currency: "INR":"symbol" }}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding-top: 20px; text-align: left">
+                  <table
+                    cellspacing="0"
+                    cellpadding="0"
+                    style="border: 0px"
+                    width="100%"
+                  >
+                    <tr>
+                      <td width="75%" class="total">TOTAL</td>
+                      <td width="25%" class="total">
+                        {{ final | currency: "INR":"symbol" }}
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td height="100%" valign="top" width="100%" class="tbCss">
+            <table cellpadding="0" cellspacing="0" width="100%" class="address">
+              <tr>
+                <td valign="top" style="font-size: 0; text-align: left">
+                  <div class="divStyle">
+                    <table
+                      class="tableCss"
+                      cellpadding="0"
+                      cellspacing="0"
+                      width="100%"
+                    >
+                      <tr>
+                        <td valign="top" class="estimate">
+                          <p style="font-weight: 800">Delivery Address</p>
+                          <p>
+                            {{ addressDetails?.houseNo }}
+                            {{ addressDetails?.street }}<br />{{
+                              addressDetails?.city
+                            }}
+                            - {{ addressDetails?.pinCode }}<br />
+                            {{ addressDetails?.state }}
+                            {{ addressDetails?.country }}<br />
+                            Phone no: {{ addressDetails?.phoneNo }}
+                          </p>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                  <div class="divStyle">
+                    <table
+                      class="tableCss"
+                      cellpadding="0"
+                      cellspacing="0"
+                      width="100%"
+                    >
+                      <tr>
+                        <td valign="top" class="estimate">
+                          <div style="padding-top: 50px; padding-left: 50px">
+                            <a
+                              style="
+                                height: 31px;
+                                width: 150px;
+                                text-align: -webkit-center;
+                                padding-top: 3px;
+                              "
+                              (click)="popup = true"
+                              class="btn btn-primary"
+                              >Track Order</a
+                            >
+                          </div>
+                        </td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<div class="popupCss" *ngIf="popup">
+  <div class="popup">
+    <p
+      style="
+        text-align: center;
+        font-size: large;
+        font-weight: bold;
+        color: black;
+      "
+    >
+      Order Status
+    </p>
+    <div class="content" style="padding-top: 60px">
+      <a class="close" (click)="popup = false">&times;</a>
+      <div class="container">
+        <span *ngFor="let item of counts; let i = index">
+          <span
+            class="circle-desc"
+            [class.circle-desc-active]="orderStatus == item"
+            >{{ item }}</span
+          >
+          <span class="circles" [class.active]="orderStatus == item"></span>
+          <span class="bar" *ngIf="i != counts.length - 1"></span>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,73 @@
+<br />
+<div class="alert text-center" [class.visible]="isVisible">
+  <b>Order Cancelled</b>
+</div>
+<div
+  class="row card-group"
+  style="padding-top: 15px"
+  *ngIf="orderList?.length == 0"
+>
+  <div style="text-align: center; font-size: 22px; font-weight: bold">
+    Go Place Your Orders
+  </div>
+</div>
+<div
+  class="row card-group"
+  style="padding-top: 15px"
+  *ngIf="orderList?.length &gt; 0"
+>
+  <div class="address">Your Orders</div>
+  <br />
+  <div class="col-4" *ngFor="let order of orderList; let idx = index">
+    <div class="card">
+      <div class="card-header" style="text-align: center">
+        <h5>
+          <b>Order Id : {{ order.orderId }}</b>
+        </h5>
+      </div>
+      <div class="card-body">
+        <div class="card-text">
+          <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-5">Name :</div>
+            <div class="col-md-6">{{ order?.name }}</div>
+            <div class="col-md-1"></div>
+            <div class="col-md-5">No Of Products :</div>
+            <div class="col-md-6">{{ order?.noOfProducts }}</div>
+            <div class="col-md-1"></div>
+            <div class="col-md-5">Order Status :</div>
+            <div class="col-md-6">
+              {{ order?.orderStatus }}
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-5">Address :</div>
+            <div class="col-md-6">
+              {{ order?.houseNo }} {{ order?.street }} {{ order?.city }}
+              {{ order?.pinCode }} {{ order?.state }} {{ order?.country }}
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-5">Phone No :</div>
+            <div class="col-md-6">
+              {{ order?.phoneNo }}
+            </div>
+            <br />
+            <br />
+            <div class="col-md-2"></div>
+            <div
+              class="col-md-8"
+              style="padding-left: 60px"
+              *ngIf="order?.orderStatus != 'Arrived'"
+            >
+              <a
+                (click)="deleteOrder(order?.orderId, idx)"
+                class="btn btn-primary"
+                >Cancel Order</a
+              >
+            </div>
+            <div class="col-md-2"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

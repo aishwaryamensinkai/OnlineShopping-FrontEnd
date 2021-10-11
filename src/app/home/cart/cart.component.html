@@ -1,0 +1,97 @@
+<div class="alert text-center" [class.visible]="isVisible">
+  <b>Removed from Cart Successfully!!</b>
+</div>
+<div class="cart-page-container">
+  <div class="cart-page-header">
+    <h2>Shopping Cart</h2>
+  </div>
+  <div class="cart-page-content" *ngIf="cartList.length > 0">
+    <div class="cart-item-header cart-item-row">
+      <div class="cart-item-cell cart-item-product"><span>Product</span></div>
+      <div class="cart-item-cell cart-item-quantity"><span>Quantity</span></div>
+      <div class="cart-item-cell cart-item-total"><span>Total</span></div>
+      <div class="cart-item-cell cart-item-action"><span>Action</span></div>
+    </div>
+    <div class="cart-item-row" *ngFor="let product of cartList; let i = index">
+      <div class="cart-item-cell cart-item-product">
+        <div
+          class="cart-item-thumbnail"
+          [ngStyle]="{
+            'background-image': 'url(./assets/imgs/' + product.image + ')'
+          }"
+        ></div>
+        <div class="cart-item-info">
+          <div class="cart-item-brand">{{ product.brand }}</div>
+          <div class="cart-item-title">{{ product.title }}</div>
+        </div>
+      </div>
+      <div class="cart-item-cell cart-item-quantity">
+        <div class="content">
+          <button
+            type="button"
+            class="btn"
+            (click)="increaseQuantity(product.productId, product.quantity)"
+          >
+            <i class="fa fa-plus"></i></button
+          >&nbsp; <span>{{ product.quantity }}</span
+          >&nbsp;
+          <button
+            type="button"
+            class="btn"
+            (click)="decreaseQuantity(product.productId, product.quantity)"
+          >
+            <i class="fa fa-minus"></i>
+          </button>
+        </div>
+      </div>
+      <div class="cart-item-cell cart-item-total">
+        <div class="item-price">
+          {{ product.price * product.quantity | currency: "INR":"symbol" }}
+        </div>
+      </div>
+      <div class="cart-item-cell cart-item-action">
+        <div class="item-remove" (click)="removeFromCart(product.productId)">
+          X
+        </div>
+      </div>
+    </div>
+    <div class="row cart-total">
+      <div class="col-lg-offset-6">
+        <div class="cart-total-row row">
+          <div class="col-md-6"></div>
+          <div class="col-md-3 cart-total-label">Cart overview</div>
+          <div class="col-md-3 cart-total-value"></div>
+        </div>
+        <div class="cart-total-row row">
+          <div class="col-md-6"></div>
+          <div class="col-md-3 cart-total-label">subtotal</div>
+          <div class="col-md-3 cart-total-value">
+            {{ total | currency: "INR":"symbol" }}
+          </div>
+        </div>
+        <div class="cart-total-row row">
+          <div class="col-md-6"></div>
+          <div class="col-md-3 cart-total-label">total</div>
+          <div class="col-md-3 cart-total-value cart-total-price">
+            {{ total | currency: "INR":"symbol" }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cart-buttons">
+      <div class="continue-shopping">
+        <a style="cursor: pointer" (click)="homePage()">continue shopping</a>
+      </div>
+      <div
+        class="checkout-button button button-primary button-large"
+        (click)="checkout()"
+      >
+        Checkout ( {{ total | currency: "INR":"symbol" }})
+      </div>
+    </div>
+  </div>
+  <div class="cart-page-content" *ngIf="cartList.length == 0">
+    <h4>Your cart is empty.</h4>
+    <a style="cursor: pointer" (click)="homePage()">Go shopping</a>
+  </div>
+</div>

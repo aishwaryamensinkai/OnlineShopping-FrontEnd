@@ -1,0 +1,292 @@
+<br />
+<div class="alert text-center" [class.visible]="isVisible">
+  <b>Address Deleted Successfully</b>
+</div>
+<br />
+<div
+  class="row card-group"
+  style="padding-top: 15px"
+  *ngIf="addressList.length &gt; 0"
+>
+  <div class="address">Previously used addresses</div>
+  <div class="col-4" *ngFor="let address of addressList; let idx = index">
+    <div class="card">
+      <div class="card-header" style="text-align: center">
+        <h5><b>Shipping Address</b></h5>
+      </div>
+      <div class="card-body">
+        <div class="card-text">
+          <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-4">House No :</div>
+            <div class="col-md-6">
+              {{ address?.houseNo }}
+            </div>
+            <div class="col-md-2"></div>
+            <div class="col-md-4">City :</div>
+            <div class="col-md-6">
+              {{ address?.city }}
+            </div>
+            <div class="col-md-2"></div>
+            <div class="col-md-4">State :</div>
+            <div class="col-md-6">
+              {{ address?.state }}
+            </div>
+            <div class="col-md-2"></div>
+            <div class="col-md-4">Country :</div>
+            <div class="col-md-6">
+              {{ address?.country }}
+            </div>
+            <div class="col-md-2"></div>
+            <div class="col-md-4">PinCode :</div>
+            <div class="col-md-6">
+              {{ address?.pinCode }}
+            </div>
+            <div class="col-md-2"></div>
+            <div class="col-md-4">PhoneNo :</div>
+            <div class="col-md-6">
+              {{ address?.phoneNo }}
+            </div>
+          </div>
+        </div>
+        <br />
+        <div style="text-align: center; align-items: center">
+          <a (click)="payment(address?.addressId)" class="btn btn-primary"
+            >Use This Address</a
+          >&nbsp;&nbsp;
+          <button
+            (click)="deleteAddress(address?.addressId, idx)"
+            class="btn btn-primary"
+          >
+            Delete Address
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="my-form">
+  <div class="cotainer">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header" style="text-align: center">
+            <b>Add Address</b>
+          </div>
+          <div class="card-body" style="text-align: justify">
+            <form #addressform="ngForm" (ngSubmit)="saveAddress()">
+              <div class="form-group row extraCss">
+                <div class="col-md-1"></div>
+                <label
+                  for="phoneNo"
+                  class="col-md-4 col-form-label text-md-right"
+                  >Phone No</label
+                >
+                <div class="col-md-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="your-phoneNo"
+                    [(ngModel)]="address.phoneNo"
+                    [ngModelOptions]="{ standalone: true }"
+                    name="phoneNo"
+                    required
+                    pattern="^[0-9]{10}$"
+                    #phoneNo="ngModel"
+                    [class.is-invalid]="phoneNo.invalid && phoneNo.touched"
+                  />
+                  <div
+                    *ngIf="phoneNo.errors && phoneNo.invalid && phoneNo.touched"
+                  >
+                    <small style="color: red" *ngIf="phoneNo.errors.required"
+                      >Phone No is required.</small
+                    >
+                    <small style="color: red" *ngIf="phoneNo.errors.pattern"
+                      >Enter 10 digit valid Mobile No</small
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row extraCss">
+                <div class="col-md-1"></div>
+                <label
+                  for="houseNo"
+                  class="col-md-4 col-form-label text-md-right"
+                  >House No</label
+                >
+                <div class="col-md-6">
+                  <input
+                    type="number"
+                    class="form-control"
+                    placeholder="your-houseNo"
+                    [(ngModel)]="address.houseNo"
+                    [ngModelOptions]="{ standalone: true }"
+                    name="houseNo"
+                    required
+                    #houseNo="ngModel"
+                    [class.is-invalid]="houseNo.invalid && houseNo.touched"
+                  />
+                  <div
+                    *ngIf="houseNo.errors && houseNo.invalid && houseNo.touched"
+                  >
+                    <small style="color: red" *ngIf="houseNo.errors.required"
+                      >House No is required.</small
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row extraCss">
+                <div class="col-md-1"></div>
+                <label
+                  for="street"
+                  class="col-md-4 col-form-label text-md-right"
+                  >Street</label
+                >
+                <div class="col-md-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="your-street"
+                    [(ngModel)]="address.street"
+                    [ngModelOptions]="{ standalone: true }"
+                    name="street"
+                    required
+                    #street="ngModel"
+                    [class.is-invalid]="street.invalid && street.touched"
+                  />
+                  <div
+                    *ngIf="street.errors && street.invalid && street.touched"
+                  >
+                    <small style="color: red" *ngIf="street.errors.required"
+                      >Street is required.</small
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row extraCss">
+                <div class="col-md-1"></div>
+                <label for="city" class="col-md-4 col-form-label text-md-right"
+                  >City</label
+                >
+                <div class="col-md-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="your-city"
+                    [(ngModel)]="address.city"
+                    [ngModelOptions]="{ standalone: true }"
+                    name="city"
+                    required
+                    #city="ngModel"
+                    [class.is-invalid]="city.invalid && city.touched"
+                  />
+                  <div *ngIf="city.errors && city.invalid && city.touched">
+                    <small style="color: red" *ngIf="city.errors.required"
+                      >City is required.</small
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row extraCss">
+                <div class="col-md-1"></div>
+                <label for="state" class="col-md-4 col-form-label text-md-right"
+                  >State</label
+                >
+                <div class="col-md-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="your-state"
+                    [(ngModel)]="address.state"
+                    [ngModelOptions]="{ standalone: true }"
+                    name="state"
+                    required
+                    #state="ngModel"
+                    [class.is-invalid]="state.invalid && state.touched"
+                  />
+                  <div *ngIf="state.errors && state.invalid && state.touched">
+                    <small style="color: red" *ngIf="state.errors.required"
+                      >State is required.</small
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row extraCss">
+                <div class="col-md-1"></div>
+                <label
+                  for="country"
+                  class="col-md-4 col-form-label text-md-right"
+                  >Country</label
+                >
+                <div class="col-md-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="your-country"
+                    [(ngModel)]="address.country"
+                    [ngModelOptions]="{ standalone: true }"
+                    name="country"
+                    required
+                    #country="ngModel"
+                    [class.is-invalid]="country.invalid && country.touched"
+                  />
+                  <div
+                    *ngIf="country.errors && country.invalid && country.touched"
+                  >
+                    <small style="color: red" *ngIf="country.errors.required"
+                      >Country is required.</small
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="form-group row extraCss">
+                <div class="col-md-1"></div>
+                <label
+                  for="pinCode"
+                  class="col-md-4 col-form-label text-md-right"
+                  >Pin Code</label
+                >
+                <div class="col-md-6">
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="your-pinCode"
+                    [(ngModel)]="address.pinCode"
+                    [ngModelOptions]="{ standalone: true }"
+                    name="pinCode"
+                    required
+                    pattern="^[1-9][0-9]{5}$"
+                    #pinCode="ngModel"
+                    [class.is-invalid]="pinCode.invalid && pinCode.touched"
+                  />
+                  <div
+                    *ngIf="pinCode.errors && pinCode.invalid && pinCode.touched"
+                  >
+                    <small style="color: red" *ngIf="pinCode.errors.required"
+                      >Pin Code is required.</small
+                    >
+                    <small style="color: red" *ngIf="pinCode.errors.pattern"
+                      >Enter 6 digit valid Pin Code</small
+                    >
+                  </div>
+                </div>
+              </div>
+              <div style="text-align: center">
+                <small style="color: red"
+                  ><b>{{ message }}</b
+                  ><br /><br
+                /></small>
+              </div>
+              <div class="col-md-7 offset-md-4">
+                <button type="submit" class="btn btn-primary">
+                  Use This Address
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

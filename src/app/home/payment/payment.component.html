@@ -1,0 +1,106 @@
+<div class="row justify-content-center">
+  <div class="card card0" style="width: 70% !important">
+    <div class="d-flex" id="wrapper">
+      <div class="bg-light border-right" id="sidebar-wrapper">
+        <div class="sidebar-heading pt-5 pb-4">
+          <strong>PAY WITH</strong>
+        </div>
+        <div class="list-group list-group-flush">
+          <a
+            style="cursor: not-allowed"
+            data-toggle="tab"
+            id="tab1"
+            class="tabs list-group-item bg-light"
+          >
+            <div class="list-div my-2">
+              <div class="fa fa-home"></div>
+              &nbsp;&nbsp; Bank
+            </div>
+          </a>
+          <a
+            style="cursor: not-allowed"
+            data-toggle="tab"
+            id="tab2"
+            class="tabs list-group-item bg-light"
+          >
+            <div class="list-div my-2">
+              <div class="fa fa-credit-card"></div>
+              &nbsp;&nbsp; Card
+            </div>
+          </a>
+          <a
+            style="cursor: not-allowed"
+            data-toggle="tab"
+            id="tab3"
+            class="tabs list-group-item bg-light"
+          >
+            <div class="list-div my-2">
+              <div class="fa fa-qrcode"></div>
+              &nbsp;&nbsp;&nbsp; Visa QR <span id="new-label">NEW</span>
+            </div>
+          </a>
+          <a
+            style="cursor: pointer"
+            data-toggle="tab"
+            id="tab4"
+            class="tabs list-group-item active1"
+          >
+            <div class="list-div my-2">
+              <div class="fa fa-money"></div>
+              &nbsp;&nbsp; Cash On Delivery
+            </div>
+          </a>
+        </div>
+      </div>
+      <div id="page-content-wrapper">
+        <div class="row pt-3" id="border-btm">
+          <br />
+          <div class="row justify-content-right">
+            <div>
+              <p style="color: black; font-size: medium">
+                Payment Mode :
+                <b style="font-weight: bold">Cash On Delivery</b>
+              </p>
+            </div>
+            <div>
+              <p style="color: black; font-size: medium">
+                Total Amount :
+                <b style="font-weight: bold">
+                  {{ totalAmt | currency: "INR":"symbol" }}</b
+                >
+              </p>
+            </div>
+            <div style="margin-left: 10px; padding-top: 0px">
+              <a
+                style="
+                  height: 31px;
+                  width: 150px;
+                  text-align: -webkit-center;
+                  padding-top: 3px;
+                "
+                (click)="placeOrder()"
+                class="btn btn-primary"
+                >Place Order</a
+              >
+            </div>
+          </div>
+          <div class="row justify-content-right"></div>
+          <div class="card">
+            <div class="card-body" style="color: red">
+              <small
+                ><b>Note :</b>Only Cash on Delivery is avaliable as payment
+                methode as our system is under maintenance. Sorry For the
+                inconvenience.</small
+              >
+            </div>
+          </div>
+          <div class="row justify-content-right">
+            <div>
+              <p style="font-size: medium">Contact Us: customer@email.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

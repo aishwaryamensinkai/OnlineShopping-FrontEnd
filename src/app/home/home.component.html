@@ -1,0 +1,29 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" routerLink="/dashboard">
+      <img src="../../assets/imgs/plate.jpeg" />
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-end">
+      <a class="navbar-item" routerLink="/dashboard"> Dashboard </a>
+      <a class="navbar-item" routerLink="/profile"> Profile </a>
+      <a class="navbar-item" routerLink="/orders"> Orders </a>
+      <div
+        class="navbar-item"
+        style="cursor: pointer; padding-right: 20px; margin-right: 9px"
+        routerLink="/cart"
+      >
+        <i class="fa fa-shopping-cart fa-2x"></i>
+        <div class="cartValue">{{ cartItem }}</div>
+      </div>
+      <a class="navbar-item" (click)="LogoutAction()"> Logout </a>
+    </div>
+  </div>
+</nav>
+
+<section class="section">
+  <div class="container mainBlock">
+    <router-outlet></router-outlet>
+  </div>
+</section>
