@@ -1,19 +1,54 @@
-# Shopping App of Plates
+# Online Plate Shopping
 
 Welcome to the OnlineShopping repository for plates!
 
 This project aims to provide a seamless online shopping experience for a diverse range of plates, including clay, wooden, and ceramic categories. Whether you're looking to add rustic charm with clay plates, embrace natural elegance with wooden plates, or indulge in modern sophistication with ceramic plates, we've got you covered.
 
-### Features
+## Features
 
-Browse through an extensive collection of plates in various styles and designs.
-Filter products by category to find exactly what you're looking for.
-View detailed product descriptions and images to make informed purchasing decisions.
-Add products to your cart and seamlessly proceed to checkout for a hassle-free shopping experience.
-With a user-friendly interface and a wide selection of high-quality plates, OnlineShopping makes it easy to elevate your dining experience from the comfort of your home. Start exploring our collection today and discover the perfect plates to complement your culinary creations!
+- Browse through an extensive collection of plates in various styles and designs.
+- Filter products by category to find exactly what you're looking for.
+- View detailed product descriptions and images to make informed purchasing decisions.
+- Add products to your cart and seamlessly proceed to checkout for a hassle-free shopping experience.
+- With a user-friendly interface and a wide selection of high-quality plates, OnlineShopping makes it easy to elevate your dining experience from the comfort of your home. Start exploring our collection today and discover the perfect plates to complement your culinary creations!
+
+## Installation
+
+To run this application locally, follow these steps:
+
+1. Clone this repository:
+
+    ```bash
+    git clone https://github.com/aishwaryamensinkai/OnlineShopping-frontend.git
+
+2. Navigate to the project directory:
+
+    ```bash
+    cd OnlineShopping-frontend
+
+3. Install the required packages:
+
+    ```bash
+    npm install
+
+4. Start the development server:
+
+    ```bash
+    npm start
+
+## Contributing
+Contributions are welcome! If you'd like to add new features, improve existing ones, or fix any bugs, feel free to fork the repository and submit a pull request.
+
+## License
+This project is licensed under the MIT License.
+
+## Acknowledgments
+
+- Inspiration and guidance from various online tutorials and resources.
 
 ### Query to add products details to shopping database
 
+```bash
 INSERT INTO products (title, brand, price, description, quantity, image, category) VALUES
   ('Modern Matte Ceramic Dinnerware Set', 'Modern Fusion', 59.99, 'Experience contemporary dining with our Modern Matte Ceramic Dinnerware Set, featuring sleek lines and a matte finish for a minimalist yet sophisticated tabletop aesthetic.', 30, 'ceramic1.jpg', 'Ceramic'),
   ('Art Deco Ceramic Charger Plates', 'Deco Delights', 34.99, 'Make a statement with our Art Deco Ceramic Charger Plates, inspired by the glamour of the Art Deco era and crafted with exquisite detailing for an opulent dining experience.', 70, 'ceramic2.jpg', 'Ceramic'),
@@ -31,3 +66,5 @@ INSERT INTO products (title, brand, price, description, quantity, image, categor
   ('Handcrafted Clay Dessert Plates', 'Earthen Delights', 19.99, 'Savor your sweets with our Handcrafted Clay Dessert Plates, featuring delicate designs and artisanal craftsmanship.', 80, 'clay4.jpg', 'Clay'),
   ('Mediterranean Clay Salad Plates', 'Mediterraneo', 34.99, 'Capture the essence of the Mediterranean with our Clay Salad Plates, inspired by sun-soaked terracotta hues and coastal charm.', 60, 'clay5.jpg', 'Clay'),
   ('Vintage Terracotta Dinner Plates', 'Rustic Revival', 44.99, 'Dine in timeless style with our Vintage Terracotta Dinner Plates, reminiscent of ancient pottery and imbued with rustic character.', 70, 'clay6.jpg', 'Clay');
+
+
