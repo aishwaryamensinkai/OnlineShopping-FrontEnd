@@ -67,8 +67,11 @@
                     (click)="increaseQuantity(product)"
                   >
                     <i class="fa fa-plus"></i></button
-                  >&nbsp; <span>{{ product.quantity }}</span
-                  >&nbsp;
+                  >&nbsp; 
+                  <!-- <span>{{ product.quantity }}</span> -->
+                  <input type="number" [(ngModel)]="product.quantity" min="0" (change)="updateQuantity(product)" style="width: 30px;height: 40px;"
+                    class="no-spinner">
+                  &nbsp;
                   <button
                     type="button"
                     class="btn"

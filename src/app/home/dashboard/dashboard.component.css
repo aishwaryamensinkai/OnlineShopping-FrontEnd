@@ -233,3 +233,15 @@
   pointer-events: none;
   color: #aaa;
 }
+
+/* Hide the increase and decrease buttons for number input */
+.no-spinner::-webkit-outer-spin-button,
+.no-spinner::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.no-spinner {
+  /* Firefox */
+  -moz-appearance: textfield;
+}

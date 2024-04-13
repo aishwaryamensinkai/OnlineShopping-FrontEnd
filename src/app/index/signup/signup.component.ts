@@ -24,12 +24,12 @@ export class SignupComponent implements OnInit {
     if (Object.keys(this.user).length != 0)
       this.registrationService.registerUserFromRemote(this.user).subscribe(
         (data) => {
-          // console.log("Response recieved");
+          // console.log("Response received");
           this.message = "Registration Successful";
           this.router.navigate(['/login']);
         },
         (error) => {
-          // console.log("Exception recieved");
+          // console.log("Exception received");
           this.message = "Server Error or User with the EmailId ";
         });
     else

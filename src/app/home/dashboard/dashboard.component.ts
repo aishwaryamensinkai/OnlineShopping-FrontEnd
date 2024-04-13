@@ -99,4 +99,10 @@ export class DashboardComponent implements OnInit {
       product.quantity -= 1;
     console.log(product.quantity);
   }
+  updateQuantity(product: any) {
+  // Ensure quantity is not negative
+    if (product.quantity < 0) {
+      product.quantity = 0;
+    }
+  }
 }
