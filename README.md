@@ -46,6 +46,9 @@ This project is licensed under the MIT License.
 
 - Inspiration and guidance from various online tutorials and resources.
 
+## Backend code Details
+https://github.com/aishwaryamensinkai/OnlineShopping-backend
+
 ### Query to add products details to shopping database
 
 ```bash
