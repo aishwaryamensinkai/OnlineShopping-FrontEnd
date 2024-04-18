@@ -12,6 +12,8 @@ import { IndexComponent } from './index/index.component';
 import { IndexModule } from './index/index.module';
 import { RegistrationService } from './services/registration.service';
 import { SearchFilterPipe } from './pipes/search-filter.pipe';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { SearchFilterPipe } from './pipes/search-filter.pipe';
     IndexModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [RegistrationGuard, RegistrationService, LoginGuard],
+  providers: [RegistrationGuard, RegistrationService, LoginGuard, {provide: LocationStrategy, useClass: HashLocationStrategy}],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
