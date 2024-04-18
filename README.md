@@ -41,6 +41,8 @@ To run this application locally, follow these steps:
     ```bash
     ng build --output-path docs  --base-href /OnlineShopping-frontend/
 
+    When building the project make sure the images have correct paths otherwise the images will not display. Make sure to include the relative path as the root file is src so you can include as ./assets/imagesname.png
+    
 ## Contributing
 Contributions are welcome! If you'd like to add new features, improve existing ones, or fix any bugs, feel free to fork the repository and submit a pull request.
 
