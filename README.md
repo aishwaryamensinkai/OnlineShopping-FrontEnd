@@ -36,6 +36,11 @@ To run this application locally, follow these steps:
     ```bash
     npm start
 
+5. To build a project run
+
+    ```bash
+    ng build --output-path docs  --base-href /OnlineShopping-frontend/
+
 ## Contributing
 Contributions are welcome! If you'd like to add new features, improve existing ones, or fix any bugs, feel free to fork the repository and submit a pull request.
 
